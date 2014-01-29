@@ -1,0 +1,1811 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Terminal</string>
+    <string name="action_settings">Settings</string>
+    <string name="execute">Execute</string>
+    <string name="directory_path">Directory Path Example</string>
+    <string name="all_files">All Files</string>
+    <string name="all_teachers">All Teachers</string>
+    <string name="all_students">All Students</string>
+    <string name="teacher_group">Teacher Group</string>
+    <string name="teacher_marks">Teacher Marks</string>
+    <string name="teacher_subject">Teacher Subject</string>
+    <string name="title_activity_list">Linux Lab</string>
+    <string name="title_activity_file_management">File Management</string>
+    <string name="title_activity_experiment_list">Linux Lab</string>
+    <string name="title_activity_text_editor">Text Editor</string>
+    <string name="title_activity_file_content">FileContentActivity</string>
+    <string name="title_activity_archival_and_compression">ArchivalAndCompressionActivity</string>
+    <string name="title_activity_pipes_and_redirection">PipesAndRedirectionActivity</string>
+    <string name="title_activity_searching">SearchingActivity</string>
+    <string name="runTerminal">Run Terminal</string>
+    <string name="exp1_1">1. The Linux File System\n\n
+
+The file system is a method of consistently naming objects and organizing them in an orderly manner. Some of the operating system like windows organize the file system in drives. The Linux file system is a directory tree that is consistent with each Linux distribution. This directory tree begins with the \"/\" (root) and then expands under that position like an upside down tree. Each directory under \"/\" has a specific purpose whether it is to store system files, constantly changing log files, device drivers or files created by users on the system.\n\n
+
+A home directory is a file system sub-directory on a multi-user operating system containing files for a given user of the system. A user\'s home directory is intended to contain that user\'s files; including text documents, music, pictures or videos, etc. /home/aditi refers to the home directory of the user aditi, ~ is equivalent to the /home/aditi which is the current users home directory.\n\n
+
+The file system also contains a method of securing files, directories and objects in the file system. This is represented by the file permissions that are explained in the experiment File Permissions\n\n
+2. The Command Line Prompt\n\n
+
+The commands that will be described are meant to be executed from a command line interface. The command line prompt that shows up in the terminal window contains useful information. It has the form:\n\n
+
+aditi@mylaptop:~/Documents$\n\n
+
+There are three parts in the command line prompt, separated by @ : and $\n\n
+
+The first part before the \'@\' shows the user who is logged in at that moment. In the above example it is the user aditi. The second part between the @ and the : shows the name of the computer that you are working on. In the above example it is mylaptop. The third part, between the : and the $ shows the current directory that you are working on. In the above example it is ~/Documents (~ is a shortcut for the user’s home directory; ~/Documents is equivalent to /home/aditi/Documents). When you change the current directory, then they can find the third part of the command line prompt changing.\n\n
+3. Viewing the contents of files and directories\n\n
+
+Viewing the contents of files and directories using three commands, namely pwd, ls and cat.\n\n
+
+a. pwd command\n\n
+
+At any time, in order to see the current directory you can type pwd(Present Working Directory).\n\n
+
+aditi@mylaptop:~/Documents$ pwd\n
+ /home/aditi/Documents\n\n
+
+b. ls command\n\n
+
+To list the contents of a directory, the ls command is used. When it is executed with no arguments, it lists the contents of the current working directory.\n\n
+
+The path of a file is the location of a file in the filesystem. There are two ways of specifying the path of a file: relative path and absolute path. Relative path is the location of a file relative to your current location in the filesystem. Absolute path is the location of the file with respect to the root directory. It is independent of the current working directory.</string>
+    <string name="exp1_2" formatted="false">Figure 1\n\n
+Example1 : Consider the above directory tree (Figure 1)from which we want to list the contents of the folder my_project. Consider our present working directory is /home/aditi/Documents. Doing \"ls my_project\" would list the contents of folder my_project, we are using the relative path here as we are listing from the current working directory. If we use \"ls /home/aditi/Documents/my_project\" from the current working directory, this is considered as the absolute path as we are specifying from \"/\".\n\n
+
+aditi@mylaptop:~/Documents$ ls my_project\n
+vlabs_ui\n\n
+
+In the above example, the relative path of the directory has been used.\n\n
+
+aditi@mylaptop:~/Documents$ ls /home/aditi/Documents/my_project\n
+ vlabs_ui\n\n
+
+In the above example, the absolute path of the directory has been used. As we can see, the two paths are equivalent.\n\n
+
+Referring to the above Figure:1 and assuming our present working directory is /home/aditi/Documents. \".\" refers to the current directory i.e. Documents and \"..\" refers to the parent directory(of the current directory) in our example it is aditi(home directory).\n\n
+
+\"ls .\" will display all the contents of the current directory\n\n
+
+aditi@mylaptop:~/Documents$ ls .\n
+all_about_console.txt  example.txt  my_project\n\n
+
+\"ls ..\" will display all the contents of the parent directory\n\n
+
+aditi@mylaptop:~/Documents$ ls ..\n
+Desktop Documents Downloads Music Pictures\n\n
+
+The most used options for the ls command are l, a.\n
+Table 1: Common parameters for \'ls\' command\n</string>
+    <string name="exp1_3" formatted="false">\naditi@mylaptop:~/Documents$ ls -l\n
+total 4\n
+-rw-r--r--  1 aditi students 0    2010-08-20 22:22 example.txt\n
+-rw-r--r--  1 aditi students 0    2010-08-20 22:22 all_about_console.txt\n
+drwxr-xr-x  2 aditi students 4096 2010-08-02 14:03 my_project\n\n
+
+Here, in addition to the name of each file, the file type, file mode bits, number of hard links, owner name, group name, size, and timestamp, normally the modification time are printed.\n\n
+
+The file mode bits contains details regarding the properties of the file. It has 10 fields. The first field refers to the file type. \'d\' means the file is a directory, \'l\' means it is a link, \'-\' means it is a regular file. The next nine fields are the permissions of the owner, group and other, respectively. \'r\', \'w\' and \'x\' in a field means \'read\', \'write\' and \'execute\' permissions, respectively. If a \'-\' is printed in a field, it means that particular permission is not present for the corresponding user, group or other. For detailed explanation go through File Permissions\n\n
+
+aditi@mylaptop:~/Documents$ ls -a\n
+.  ..  all_about_console.txt  example.txt  my_project .virtual-lab.txt\n\n
+
+In the above example .virtual-lab.txt was the hidden file, which was displayed when ls was used with -a option.\n\n
+
+. and .. refer to current folder and parent folder, respectively.\n\n
+
+ls can be used with an option \"al\" to list the detail view of the contents of the folder along with the hidden contents.\n\n
+
+aditi@mylaptop:~/Documents$ ls -al\n
+total 4\n
+-rw-r--r--  1 aditi students 0    2010-08-20 22:22 example.txt\n
+-rw-r--r--  1 aditi students 0    2010-08-20 22:22 .virtual-labs.txt\n
+-rw-r--r--  1 aditi students 0    2010-08-20 22:22 all_about_console.txt\n
+drwxr-xr-x  2 aditi students 4096 2010-08-02 14:03 my_project\n\n
+
+Whenever you need help about commands in Linux, you can read the man pages, which contain detailed information about commands and their options. To know more about the ls command, see the man page, type:\n\n
+
+aditi@mylaptop:~/Documents$ man ls\n\n
+
+Information about the command will appear on the screen. You can move up and down using the arrow keys. In order to exit from the man page type key \"q\".\n\n
+
+c. cat command\n\n
+
+cat command displays the contents of the file passed as argument. If multiple files are passed, it prints the concatenated content of all the files.\n\n
+
+aditi@mylaptop:~/Documents$ cat virtual-lab.txt\n
+Welcome to Linux Lab!\n\n
+
+In the above example cat displays content of the file virtual-lab.txt.\n\n
+
+Type the clear command to clear your screen.\n
+4. Moving through directories:\n\n
+
+a. cd command\n\n
+
+The command cd (change directory) allows us to move through directory trees. It has one parameter: target directory path. If no parameter is mentioned it will go to the current users home directory. If the parameter \"..\" is used, it will take you to previous directory(parent directory).\n\n
+
+aditi@mylaptop:~/Documents$ cd my_project\n
+aditi@mylaptop:~/Documents/my_project$ pwd\n
+/home/aditi/Documents/my_project\n\n
+
+aditi@mylaptop:~/Documents/my_project$ cd ..\n
+/home/aditi/Documents\n\n
+
+aditi@mylaptop:~Documents/my_project$ cd \n\n
+
+aditi@mylaptop:~$ pwd\n
+/home/aditi\n\n
+
+5. Creating files and folders:\n\n
+
+b. touch command\n\n
+
+It creates an empty file directly from the command line. In order to do it, type:\n\n
+
+aditi@mylaptop:~/Documents$ ls\n
+all_about_console.txt example.txt my_project\n
+aditi@mylaptop:~/Documents$ touch newfile.txt\n
+aditi@mylaptop:~/Documents$ ls \n
+all_about_console.txt  example.txt my_project newfile.txt\n\n
+
+An empty file with the specified name will be created. If a file with that name already exists on disk, it will remain there and moment of last update is changed in the properties of the file.\n\n
+
+c. mkdir command\n\n
+
+The mkdir command takes one or more parameters and creates the folders corresponding to the parameters.\n\n
+
+aditi@mylaptop:~/Documents$ ls \n
+all_about_console.txt  example.txt  my_project newfile.txt \n
+aditi@mylaptop:~/Documents$ mkdir new_folder\n
+aditi@mylaptop:~/Documents$ ls \n
+all_about_console.txt  example.txt  my_project newfile.txt new_folder\n\n
+
+6. Copying, Moving and removing files and folders:\n\n
+
+a. cp command\n\n
+
+cp command is used to create a copy of files. It can be invoked with two arguments, SOURCE and DEST in which case it copies SOURCE to DEST.\n\n
+
+ aditi@mylaptop:~/Documents$ ls\n
+all_about_console.txt  example.txt  my_project new_folder\n\n
+
+aditi@mylaptop:~/Documents$ cd my_project\n
+aditi@mylaptop:~/Documents$ ls\n
+vlabs_ui \n\n
+
+aditi@mylaptop:~/Documents$ cp example.txt my_project/example_copy.txt\n
+aditi@mylaptop:~/Documents$ ls my_project\n
+vlabs_ui  example_copy.txt\n\n
+
+For copying directories, the -r (recursive) option is used.\n\n
+
+aditi@mylaptop:~Documents$ ls my_project\n
+vlabs_ui example_copy.txt\n
+aditi@mylaptop:~/Documents$ cp -r new_folder my_project/new_folder_copy \n
+aditi@mylaptop:~/Documents$ cd my_project\n
+aditi@mylaptop:~/Documents$ ls\n
+vlabs_ui example_copy.txt new_folder_copy\n\n
+
+b. mv command\n\n
+
+The mv command is used to change the location of directories and files or renaming them. Parameters are taken in a similar way as the cp command.\n\n
+
+aditi@mylaptop:~/Documents$ ls\n
+vlabs_ui example_copy.txt new_folder_copy\n\n
+ 
+ aditi@mylaptop:~/Documents$ mv example.txt my_project/example_move.txt\n\n
+
+ aditi@mylaptop:~/Documents$ ls my_project\n
+ vlabs_ui  example_copy.txt new_folder_copy example_move.txt \n\n
+
+c. rm command\n\n
+
+rm command removes files. It can be used with the -r option to remove directories.\n\n
+
+aditi@mylaptop:~/Documents$ ls \n
+all_about_console.txt  example.txt  my_project  newfile.txt  new_folder \n\n
+
+aditi@mylaptop:~/Documents$ rm example.txt\n\n
+
+aditi@mylaptop:~/Documents$ rm -r new_folder\n\n
+
+aditi@mylaptop:~/Documents$ ls\n
+all_about_console.txt  my_project  newfile.txt\n\n
+
+d. rmdir command\n\n
+
+rmdir command removes empty directories.\n\n
+
+aditi@mylaptop:~/Documents$ mkdir new_folder\n
+aditi@mylaptop:~/Documents$ ls\n
+all_about_console.txt my_project newfile.txt  new_folder\n
+aditi@mylaptop:~/Documents$ rmdir new_folder\n
+aditi@mylaptop:~/Documents$ ls\n
+all_about_console.txt  my_project  newfile.txt\n\n
+
+The commands cp, mv, and rm have the following commonly used parameters:\n
+Table 2 Common parameters for \'cp\', \'mv\' and \'rm\'</string>
+    <string name="exp2_1" formatted="false">Starting and Exiting vim\n\n
+
+To start vim, type \"vim filename\" on the command prompt, e.g.\n\n
+
+$ vim helloworld.txt\n\n
+
+If helloworld.txt exists at the present working directory, vim will open it. If it doesn\'t exist, vim will create the file once you use the save command below.\n\n
+
+To exit vim, go to the Normal mode (press the \'Esc\' key), press the : key (Shift + ;) and type one of the following:\n</string>
+    <string name="exp2_2" formatted="false">Please note that the vim commands are case-sensitive, hence \'q\' and \'Q\' have different meanings.\n\n
+
+:wq\n\n
+
+Modes in vim\n\n
+
+NORMAL Mode: This is the default mode that you get after you start vim. This mode is not for typing text. This is for running commands such as find, save, replace, etc. You will learn these commands later in this experiment. You can press \'i\' to enter the Insert mode and start typing. Press \'Esc\' key to go back to normal mode.\n\n
+
+INSERT Mode: This mode is where you will spend most of your time in vim, as it allows you to write text in the current file.\n\n
+
+Press \'i\' in Normal Mode to enter Insert Mode. When in insert mode, you will see the word \"INSERT\" near the bottom of the editor window, as below.\n\n
+
+-- INSERT --\n\n
+
+VISUAL Mode: This mode allows selecting a section of text and applying vim commands on the selection such as cut, copy. Press \'v\' to go to visual mode. Press \'Esc\' key to go back to normal mode.\n\n
+
+When in visual mode, you will see the word \"VISUAL\" near the bottom of the editor window, as below.\n\n
+
+-- VISUAL --\n\n
+
+REPLACE Mode: This mode allows you to replace current text in the file with anythin you type. Press \'R\' (Shift + r) to enter the REPLACE mode. Press \'Esc\' key to go back to normal mode.\n\n
+
+When in replace mode, you will see the word \"REPLACE\" near the bottom of the editor window, as below.\n\n
+
+-- REPLACE --\n\n
+
+Typing Text and Saving\n\n
+
+To start typing text into the file, go to insert mode by pressing \'i\'. You should be able to see \"-- INSERT --\" near the bottom of the vim screen. Everything you type now will be visible in the window. To correct an already typed word, you can use backspace to delete and retype it correctly. You can use arrow keys, Page Up, Page Down, Home, End to navigate the file. To save your changes, type :w in normal mode.\n\n
+
+Below is a message you will see if you save a new file \"helloworld.txt\". The message says that this file is a \"New\" file with 1 line (1L) containing 15 characters (15C) in it.\n\n
+
+\"helloworld.txt\" [New] 1L, 15C written\n\n
+
+Go back to normal mode by pressing \'Esc\' key once you are done typing.
+Cut, Copy, Paste\n\n
+
+All these commands are run in Normal mode. Press \'Esc\' key to go to Normal mode.</string>
+    <string name="exp2_3" formatted="false">When you cut more than 2 lines, e.g. 5dd, you get a message at the bottom of the vim screen, as below.\n\n
+
+5 fewer lines\n\n
+
+Similarly, when you copy more than 2 lines, e.g. 10yy, you get this message near the bottom of the vim screen:\n\n
+
+10 lines yanked\n\n
+
+If you run the paste command (type p in normal mode), you get this message:\n\n
+
+10 more lines\n\n
+
+Undo, Redo\n\n
+
+All these commands are run in Normal mode. Press \'Esc\' key to go to Normal mode.</string>
+    <string name="exp2_4" formatted="false">You can undo subsequent changes using pressing \'u\' again. If there are no more changes to undo, you will get the below message near the bottom of the vim window.\n\n
+
+Already at oldest change\n\n
+
+Similarly, you can redo multiple times by repeatedly pressing CTRL-R. When there are no more changes to redo, you will get this message:\n\n
+
+Already at newest change\n\n
+
+Search\n\n
+
+All these commands are run in Normal mode. Press \'Esc\' key to go to Normal mode.</string>
+    <string name="exp2_5" formatted="false">You can keep searching for the next occurrence of the search term by repeatedly pressing n after starting the search. When the search hits the bottom of the file, it will start searching from the beginning of the file. You will see the below message when that happens.\n\n
+
+search hit BOTTOM, continuing at TOP\n\n
+
+Substitution</string>
+    <string name="exp2_6" formatted="false">The global substitution gives a count of substitutions after it is done.\n\n
+
+60 substitutions on 60 lines\n\n
+
+The global substitution with confirmation (gc) asks for confirmation for each occurrence of the substution term. You can respond with y if you want to substitute that occurrence, n if you don\'t want to, a to substitute all subsequent occurrences, q to quit substituting.\n\n
+
+replace with enter (y/n/a/q/l/^E/^Y)?\n\n
+
+Set Commands\n\n
+
+You might find these commands helpful in some scenarios. Go to Normal mode by pressing \'Esc\' and try these commands.</string>
+    <string name="exp2_7" formatted="false">Please note that these settings last only for the current session. If you exit vim, these settings will be reset. If you want these settings to persist, type these commands (without the : colon symbol) in .vimrc file in your home directory. To learn more about files, go through File Management experiment.\n\n
+
+This concludes the theory section of the text editor experiment. To learn more vim commands, go through the built-in vim tutorial by running the command \"vimtutor\"\n\n
+
+$ vimtutor\n\n
+
+vimtutor provides a reasonably detailed overview of vim commands and helps you learn by doing. We strongly encourage you to use vimtutor for getting more familiar with vim text editor and learning more vim commands.\n</string>
+    <string name="exp3_1">1. echo\n\n
+
+echo writes input strings to standard output i.e. it echoes back whatever it gets.\n\n
+
+Syntax of echo command is \"echo [string]\". In the example below, \"Hello World\" string is echoed back.\n\n
+
+aditi@mylaptop:~$ echo \"Hello World\"\n
+Hello World \n\n
+
+2. cat\n\n
+
+cat displays content of a text file.\n\n
+
+Syntax of cat command is \"cat [filename]\". The example below displays the contents of file example.txt using cat.\n\n
+
+aditi@mylaptop:~$ cat example.txt \n
+jug\n
+papaya\n
+sun\n
+cat\n
+boy\n
+queen\n
+dog\n
+kite\n
+frog\n
+goat\n
+horse\n
+apple\n
+icecream\n
+elephant\n
+lemon\n
+mango\n
+net\n
+orange\n
+rabbit\n
+
+3. head\n\n
+
+head displays the first few lines of a text file to standard output. By default, it displays the first 10 lines of the input file, but \"-n\" option can be used to display any number of lines.\n\n
+
+Syntax of head command is \"head [filename]\". The example below displays the first 10 lines of example.txt file.\n\n
+
+aditi@mylaptop:~$ head example.txt \n
+jug\n
+papaya\n
+sun\n
+cat\n
+boy\n
+queen\n
+dog\n
+kite\n
+frog\n
+goat\n\n
+
+To see the first 5 lines only, use \"head -n 5 example.txt\" or simply \"head -5 example.txt\"\n
+4. tail\n\n
+
+tail displays the last few lines of a text file to standard output. By default, it displays last 10 lines of the input file, but \"-n\" option can be used to display any number of lines.\n\n
+
+Syntax of tail command is \"tail [filename]\". The example below displays the last 10 lines of example.txt file.\n\n
+
+aditi@mylaptop:~$ tail example.txt \n
+goat\n
+horse\n
+apple\n
+icecream\n
+elephant\n
+lemon\n
+mango\n
+net\n
+orange\n
+rabbit\n\n
+
+To see the last 5 lines only, use \"tail -n 5 example.txt\" or simply \"tail -5 example.txt\"\n
+5. wc\n\n
+
+wc displays count of lines, words, and characters in a file.\n\n
+
+Syntax of wc command is \"wc [options] [filename]\"\n\n
+.
+
+Below are the available options for wc command</string>
+    <string name="exp3_2">Below example displays the count of lines, words and bytes in \"example.txt\" file. The file contains 19 lines, 19 words and 108 bytes.\n\n
+
+aditi@mylaptop:~$ wc example.txt \n
+ 19  19 108 example.txt\n\n
+
+6. sort\n\n
+
+\"sort\" displays contents of the input file in sorted order. The input file remains unsorted. It is only the displayed contents that are sorted.\n\n
+
+Syntax for sort command is \"sort [filename]. The below example displays the input file \"example.txt\" in sorted order.\n\n
+
+aditi@mylaptop:~$ cat example.txt\n
+apple\n
+boy\n
+cat\n
+dog\n
+elephant\n
+frog\n
+goat\n
+horse\n
+icecream\n
+jug\n
+kite\n
+lemon\n
+mango\n
+net\n
+orange\n
+papaya\n
+queen\n
+rabbit\n
+sun\n\n
+
+The file example.txt is unchanged, as the below output shows.\n\n
+
+aditi@mylaptop:~$ head -5 example.txt\n
+jug\n
+papaya\n
+sun\n
+cat\n
+boy\n\n
+
+7. diff\n\n
+
+diff compares input files and displays the differences between them. If there are no differences, it doesn\'t display anything. Discussion of details of the diff output is outside the scope of this experiment.\n\n
+
+Syntax of diff command is \"diff [file1] [file2]\". The below example compares example.txt with its copy example2.txt\n\n
+
+aditi@mylaptop:~$ diff example.txt examplecopy.txt\n
+aditi@mylaptop:~$\n\n
+
+8. more\n\n
+
+more is used to view contents of large output one page at a time (e.g. \"cat\" of large file or a command that results in large output such as \"ps aux\").\n\n
+
+more displays a page and pauses until the user presses spacebar or down-arrow to move to the next page of output. When there are no more pages to display, it will return to the command prompt. You can also press \'q\' key to stop \'more\' without having to go through all pages. It allows only forward navigation i.e. you cannot \"scroll-up\"\n\n
+
+Syntax for more command is \"more [filename]\"\n
+9. less\n\n
+
+less is a more versatile version of more. It allows both forward and reverse scrolling. You can scroll one page at a time (Page Up/ Page Down keys) or one line (Up/ Down arrow) or directly jump to the beginning or the end (Home/ End keys) of the content.\n\n
+
+Syntax for less command is \"less [filename]\"\n</string>
+    <string name="exp4_1">        Note that throughout this experiment word \'file\' has been used to indicate all types of files including regular files and directories. Linux also has other types of files, description of which is outside the scope of this lab. If a particular statement is true only for regular file or directory but not for both then this would be mentioned specifically.\n
+Ownership: User owner, Group owner and Others\n
+User owner\n\n
+
+The understanding of Linux file permissions requires an understanding of various types of file ownership. In Linux all files have a user owner and a group owner. The user who creates a particular file becomes its owner automatically. Later another user can be made the owner of a file by changing file\'s ownership. Thus, by modifying ownership any file can be owned by any Linux user.\n
+Groups\n\n
+
+Multiple users can be grouped together in a user-group. There is no limit on the number of users that can be part of a group. It is even possible to have a Linux group with zero users.\n\n
+
+To grant access to a file to more than one user groups are necessary. To allow more than one user to access to a file, all the required users are made part of a same user-group. Then the group owner of the file is changed to the newly created group. This allows all the members belonging to the group which owns the file to access the file while restricting others from doing so.\n\n
+
+Note that it is possible for a user to belong to many different groups. A user always belongs to at least one special group called \'primary group\'. Apart for this primary group, the user can also belong to any number of additional groups, called secondary groups.\n
+Example 1\n\n
+
+The following example can be used to understand afore mentioned points properly. Consider a Linux system with files: english.txt, maths.txt, physics.txt, marks.txt and students.txt as shown in Figure 1.</string>
+    <string name="exp4_2">        Figure 1: Files used in Example 1.\n\n
+
+Also assume that the system under consideration has following teachers as users: english_teacher, maths_teacher, physics_teacher and principal as shown it Figure 2. The system also has student users such as student_a, student_b and student_c as shown in Figure 3.\n</string>
+    <string name="exp4_3">        Figure 2: Teacher users for Example 1.</string>
+    <string name="exp4_4">        Figure 3: Student users for Example 1.\n
+Example 1 - Requirement 1\n\n
+
+As part of this example let us consider a requirement where subject teachers\' need access to files of their subjects. Thus english_teacher needs access to english.txt, maths_teacher needs access to maths.txt and physics_teacher needs access to physics.txt. This requirement is shown with the help of Figure 4 below.</string>
+    <string name="exp4_5">        Figure 4: Teachers needs access to files of their subject.\n\n
+
+This requirement is easy to satisfy by making respective teachers the user owners of the files of their subjects. Thus, if user owners for the files are set as shown in Table 1 below, then the above mentioned requirement would get satisfied.\n\n
+Table 1: Ownership of subject files File name 	User owner</string>
+    <string name="exp4_6">        Example 1: Requirement 2\n\n
+
+Another requirement can be that all teachers need access to marks.txt file. This requirement can be satisfied by keeping all teachers in a group, say teachers, and then by making group owner of file marks.txt to be group \'teacher\'. This particular requirement and its solution are explained with the help of Figures 5, 6 and Table 2.</string>
+    <string name="exp4_7">        Figure 5: All teachers need to access marks.txt file</string>
+    <string name="exp4_8">        Figure 6: All teachers are made part of teacher group\n
+Table 2: Group owner for marks.txt file</string>
+    <string name="exp4_9">        Thus basic access requirements where only one user needs access to a file or where a set of users need access to a file, can be satisfied by using users and groups, and by changing user owner and group owner of the file as per the requirement.\n
+Access types or modes\n\n
+
+Just specifying which user and which group should have access to particular file may not be enough. It may also be required to specify what type of access (read, write or execute) should a particular user have on a given file.\n
+Regular file permissions\n\n
+
+Three different types of permissions can be applied to regular files: read, write and execute which are described below.\n\n
+
+read (r)\n\n
+
+    Read permissions on a regular file (not a directory) indicate that particular user or members of the group are allowed to read the file. For example, if a user or a group has read permissions on a text file then the user or members of the group would be allowed to see the contents of the text file using cat command. Read permissions are denoted by alphabet \'r\' and number \'4\' at various occasions, hence Linux users should be comfortable with using \'r\' or \'4\' for specifying read permissions as and when required.\n
+write (w)\n\n
+
+    Write permissions on a regular file (not a directory) indicate that particular user or members of the group are allowed to write to the file. For example, if a user or a group has write permissions on a text file then the user or members of the group would be able to modify the contents of the text file using vim text editor. Write permissions are denoted by alphabet \'w\' and number \'2\'.\n
+execute (x)\n\n
+
+    Execute permissions on a regular file (not a directory) indicate that particular user or members of the group are allowed to execute (run) the file as a program. Note that execute permission may not make any sense on a generic text file as execution of normal language text is not defined. Thus, execute permissions make sense only for scripts and programs and not for every file.\n\n
+
+    But Linux will not object if execute permissions are assigned to some file which is not a program such as an image file, and thus cannot be executed. Error message or unexpected side-effects would be obtained while attempting to run the image file but not while assigning execute permissions to it.\n\n
+
+    Thorough understanding of execute permissions is not expected from beginner users right away. Hence do not worry if meaning of execute permissions is not very clear. It requires some time to understand what execute permissions mean. Execute permissions are denoted by alphabet \'x\' or number \'1\' where ever required.\n\n
+
+Note that as part of this experiment words \'folder\' and \'directory\' are used interchangeably and they both mean the same thing.\n
+Directory or folder permissions\n\n
+
+Similar to a regular file three different types of permissions can be applied to a folder or directory: read, write and execute. But the interpretation or significance of these permissions for a directory is quite different from that of a regular file. The explanation of these different types of permissions for a folder is described below:\n\n
+
+read (r)\n\n
+
+    Read permissions on a directory (not a regular file) indicate that particular user or members of the group are allowed to list the contents of the directory (read the directory). For example, if a user or a group has read permissions on a directory then the user or members of the group would be allowed to see the contents of the directory using ls command. Same as in case of regular files, read permissions for directories also are denoted by alphabet \'r\' or number \'4\'.\n
+write (w)\n\n
+
+    Write permissions on a directory (not a regular file) indicate that particular user or members of the group are allowed to create new files inside the given directory. For example, if a user or a group has write permissions on a directory then the user or members of the group would be able to create new files inside the directory using mkdir or touch commands. Moreover write permissions on a directory also allow users to rename or delete the files present inside the directory using rmdir or rm command.\n
+execute (x)\n\n
+
+    Execute permissions on a directory (not a regular file) indicate that particular user or members of the group are allowed to change directory (cd) to given folder and also access files inside the given folder. If a user does not has execute permissions on a folder, then the user cannot access any file present inside the folder.\n\n
+
+Others\n\n
+
+Sometimes it is desired for a file to have specific (read, write or execute or their combination) access by every user. To satisfy this type of requirement there is a special category of user called others for each file. For every file everyone who is neither user owner and nor a member of group owner for the file belongs to other category for the file. This other category is very helpful in setting the permissions on the file for everyone else or the world or others.\n
+Checking existing permissions and owner\n\n
+
+To check existing permissions or owner on a file one can use \'ls -l\' command. Sample output of \'ls -l\' command is shown below in Shell Output 1:\n\n
+
+aditi@mylaptop:~/test$ ls -l\n
+total 8\n                                         
+drwxr-xr-x 2 aditi students 4096 Jan  1 09:15 dir1\n                                      
+drwxr-xr-x 2 aditi students 4096 Jan  1 09:15 dir2\n                                     
+-rw-r--r-- 1 aditi students    0 Jan  1 09:15 file1\n                                     
+-rw-r--r-- 1 aditi students    0 Jan  1 09:15 file2\n
+aditi@mylaptop:~/test$\n\n
+	    
+
+Shell Output 1: Sample ls -l output\n\n
+
+In Shell Output 1, ignoring the first line (total 8) all other lines have seven columns. The first column in the output indicates type of file and its permissions. For a regular file the first character of first column is hypen(\'-\') whereas for a directory first character of first column is alphabet \'d\'.\n\n
+
+The next three characters after initial \'-\' or \'d\' indicate read, write and execute permissions for user owner for the given file. If a particular permission or type of access is present then it is represented by corresponding character such as \'r\', \'w\' or \'x\'. However if a particular permission or access is not present then a hypen(\'-\') character is displayed to indicate its absence.\n\n
+
+Similarly, the next three characters (characters 5 to 7) indicate read, write and execute permissions for group which owns the file and the last three characters (characters 8 to 10) indicate read, write and execute permissions for others. The overall significance and possible set of values for each character position for first column of \'ls -l\' output is explained in Table 3.
+Table 3: Significance of various characters in first column of \'ls -l\'</string>
+    <string name="exp4_10">        The values in second column of \'ls -l\' output can be ignored. The values in third and fourth column in \'ls -l\' output indicate user owner and group owner for the file, respectively. The values in fifth column indicate size of the file. For folders the size can be misleading and can be ignored. The values in sixth column indicate last modification time of the file and values in seventh column indicate name of the file.\n
+Changing file permissions\n\n
+
+To change permissions of a file it is necessary for user to be user owner of the file. Hence regular users cannot change permissions of files which they do not own, such as important operating system files or files created by other users. However, a special user called superuser, often recognized by username \'root\', can change ownership or permissions of any file on the system. This special user allows administrators to manage the system effectively, while ensuring security among regular users.\n\n
+
+To change the permissions of file owned by same user, one can use \'chmod\' command. Many different methods of invocation supported by chmod are explained in next few sections.\n
+Using alphabets u,g,o,a and r,w,x for changing permissions\n\n
+
+One of the ways of using chmod is to use alphabets such as u,g,o,a or r,w,x for representing user, group, others, all or read, write, execute and then change the appropriate permissions. Syntax for using chmod in this manner, significance of each alphabet or symbols and related examples are mentioned below.\n\n
+
+Syntax: chmod {[ugoa]}[+-=][rwx] [[file_name] ...]\n\n
+	    
+
+Table 4: Significance of various alphabets or symbols recognized by </string>
+    <string name="exp4_11">        chmod Example 1: chmod a+x [file]\n
+    This command will cause all other permissions (write, execute) to remain same but add execute permissions for all (user owner, group owner and others) for given file. Note that if some or all of these categories already have execute permissions then it will not cause an error and it will not remove that permission. It will only add execute permissions for all if they are not already present. This is demonstrated in Shell Output 2 below.\n\n
+
+    aditi@mylaptop:~/test$ ls -l\n
+    total 8\n
+    d--------- 2 aditi students 4096 Jan  1 09:15 dir1\n
+    d--x--x--x 2 aditi students 4096 Jan  1 09:15 dir2\n
+    -rwx------ 1 aditi students    0 Jan  1 09:15 file1\n
+    -rwxr-x--- 1 aditi students    0 Jan  1 09:15 file2\n
+    aditi@mylaptop:~/test$ chmod a+x dir1 dir2 file1 file2\n
+    aditi@mylaptop:~/test$ ls -l\n
+    total 8\n
+    d--x--x--x 2 aditi students 4096 Jan  1 09:15 dir1\n
+    d--x--x--x 2 aditi students 4096 Jan  1 09:15 dir2\n
+    -rwx--x--x 1 aditi students    0 Jan  1 09:15 file1\n
+    -rwxr-x--x 1 aditi students    0 Jan  1 09:15 file2\n
+    aditi@mylaptop:~/test$\n\n
+    		
+
+    Shell Output 2: Effect of \'chmod a+x command\' in various situations\n
+chmod Example 2: chmod +x [file]\n
+    This command is exactly same as \'chmod a+x [file]\' command. That is, if none of the categories user, group, other or all is specified then all is taken as default. \n
+chmod Example 3: chmod u-x [file]\n
+    This command will remove execute permissions for user (4th character in first column of ls -l) if it is present. Otherwise it will not have any effect. \n
+chmod Example 4: chmod o=rw [file]\n
+    This command will set read and write permissions for others on given file and remove execute permission if it is already set. Thus use of \'=\' operator ensures that by this command the permissions for given category (in this case others) are set to exactly same as those specified on command line. This and other relevant invocations of chmod command are shown in Shell Output 3 below.\n\n
+
+    aditi@mylaptop:~/test$ chmod a= dir1\n
+    aditi@mylaptop:~/test$ chmod a=rwx dir2\n
+    aditi@mylaptop:~/test$ chmod u=rwx file1\n
+    aditi@mylaptop:~/test$ chmod g=rx file1\n
+    aditi@mylaptop:~/test$ chmod o= file1\n
+    aditi@mylaptop:~/test$ chmod ugo=rx file2\n
+    aditi@mylaptop:~/test$ ls -l\n
+    total 8\n
+    d--------- 2 aditi students 4096 Jan  1 09:15 dir1\n
+    drwxrwxrwx 2 aditi students 4096 Jan  1 09:15 dir2\n
+    -rwxr-x--- 1 aditi students    0 Jan  1 09:15 file1\n
+    -r-xr-xr-x 1 aditi students    0 Jan  1 09:15 file2\n
+    aditi@mylaptop:~/test$ chmod u-rx dir2\n
+    aditi@mylaptop:~/test$ chmod go-w dir2\n
+    aditi@mylaptop:~/test$ chmod o=r file2\n
+    aditi@mylaptop:~/test$ ls -l\n
+    total 8\n
+    d--------- 2 aditi students 4096 Jan  1 09:15 dir1\n
+    d-w-r-xr-x 2 aditi students 4096 Jan  1 09:15 dir2\n
+    -rwxr-x--- 1 aditi students    0 Jan  1 09:15 file1\n
+    -r-xr-xr-- 1 aditi students    0 Jan  1 09:15 file2\n
+    aditi@mylaptop:~/test$ chmod +rx dir1\n
+    aditi@mylaptop:~/test$ chmod -x dir2\n
+    aditi@mylaptop:~/test$ ls -l\n
+    total 8\n
+    dr-xr-xr-x 2 aditi students 4096 Jan  1 09:15 dir1\n
+    d-w-r--r-- 2 aditi students 4096 Jan  1 09:15 dir2\n
+    -rwxr-x--- 1 aditi students    0 Jan  1 09:15 file1\n
+    -r-xr-xr-- 1 aditi students    0 Jan  1 09:15 file2\n
+    aditi@mylaptop:~/test$\n\n
+    		
+
+    Shell Output 3: Various \'chmod\' invocations using alphabetic notation.\n\n
+
+Using numeric permissions (ex 755, 700, 555 etc.)\n\n
+
+Very often the need is to assign exact permissions to a file ignoring its current permissions. In such cases instead of using alphabets as shown before often numbers are used to specify the permissions for a file.\n\n
+
+Numeric permissions are specified using three digit octal numbers. The first octal digit represents exact permissions for user owner, the second octal digit represents exact permissions for group owner and last octal digit represents exact permissions for others.\n\n
+
+Octal digit for a particular category is obtained by adding numeric representations of desired permissions. For example if both read(4) and write(2) permissions are desired for a given category, but not execute(1) then octal permission for the category would be 4+2=6. Similarly if only execute permissions are desired and not read or write then octal permission would be 1.\n\n
+
+Various types of octal permissions and their usage is explained with help of Table 5 and Shell Output 4 below.\n
+Table 5: Significance of various digits while using numeric permissions</string>
+    <string name="exp4_12">    aditi@mylaptop:~/test$ chmod 000 dir1\n
+aditi@mylaptop:~/test$ chmod 777 dir2\n
+aditi@mylaptop:~/test$ chmod 750 file1\n
+aditi@mylaptop:~/test$ chmod 456 file2\n
+aditi@mylaptop:~/test$ ls -l\n
+total 8\n
+d--------- 2 aditi students 4096 Jan  1 09:15 dir1\n
+drwxrwxrwx 2 aditi students 4096 Jan  1 09:15 dir2\n
+-rwxr-x--- 1 aditi students    0 Jan  1 09:15 file1\n
+-r--r-xrw- 1 aditi students    0 Jan  1 09:15 file2\n
+aditi@mylaptop:~/test$ chmod 666 dir1\n
+aditi@mylaptop:~/test$ chmod 553 dir2\n
+aditi@mylaptop:~/test$ chmod 701 file1\n
+aditi@mylaptop:~/test$ chmod 751 file2\n
+aditi@mylaptop:~/test$ ls -l\n
+total 8\n
+drw-rw-rw- 2 aditi students 4096 Jan  1 09:15 dir1\n
+dr-xr-x-wx 2 aditi students 4096 Jan  1 09:15 dir2\n
+-rwx-----x 1 aditi students    0 Jan  1 09:15 file1\n
+-rwxr-x--x 1 aditi students    0 Jan  1 09:15 file2\n
+aditi@mylaptop:~/test$\n\n
+	    
+
+Shell Output 4: Various invocations of \'chmod\' using numeric permissions.\n
+Example 1: Requirement 3\n\n
+
+Consider requirement of Example 1 where file students.txt should be editable (read, write) by principal, should be readable by teachers and should not be readable, writable or executable by students.\n\n
+
+To satisfy this requirement principal can be made user owner for file students.txt. Then group owner of the file students.txt can be set to teachers user-group. Then finally 640 permissions can be set on students.txt using \'chmod 640 students.txt\' command. This would ensure that all the constraints specified in requirement 3 are satisfied.\n
+Example 1: Requirement 4\n\n
+
+Consider another requirement of Example 1 where all the teachers should have read, write permissions on marks.txt and all students should have read permissions on marks.txt. Also in this case the principal should not have any permission read or write on marks.txt.\n\n
+
+Now this complex requirement cannot be satisfied using user, groups and permissions supported by Linux in any reasonably good way. This is because we have separate set of permissions are required for two different groups students and teachers which the current permission system cannot account for. We cannot assign permissions to others in this case as that would end up applying to principal too, which is against the mentioned requirements. Hence, this specific example has been put intentionally to explain that not all types of requirements can be satisfied with Linux file permissions.\n
+Conclusion\n\n
+
+This section concludes the theory part of the experiment. Few details related to chmod such as fourth octal digit for permissions, setuid, setgid, sticky-bit etc. are intentionally omitted to avoid unnecessary complexities. Interested users can refer to \'man chmod\' and other reading material suggested in Further Reading section for further information.</string>
+    <string name="exp5" formatted="false">Zip and Unzip\n\n
+
+Zip and Unzip are the most widely used archiving commands. They work across all operating systems, hence, making them the most obvious choices.\n\n
+
+Zip\n\n
+
+Zip does both archiving and compression functions on the files. To archive using zip command:\n\n
+
+$ ls\n
+abc.org image1.jpg image2.jpg \n\n
+
+$ zip abc abc.org\n
+  adding: abc.org (deflated 39%)\n\n
+
+$ ls -l\n
+total 268\n
+-rw-rw-r-- 1 aditi students    451 2012-12-20 17:02 abc.org\n
+-rw-rw-r-- 1 aditi students    437 2012-12-27 15:41 abc.zip\n
+-rw-rw-r-- 1 aditi students 134964 2012-12-19 20:56 image1.jpg\n
+-rw-rw-r-- 1 aditi students 124945 2012-12-16 12:34 image2.jpg\n
+
+The syntax of the command is:\n
+zip [options] [archive name] [file name/path name]\n
+where archive is the name of a new or existing archive and file name or path name is name of the file or directory to be archived or its path.\n\n
+
+To archive more than one file in the same zipped file:\n\n
+
+$ ls\n
+abc.org abc.zip image1.jpg image2.jpg\n\n
+
+$ zip abc image1.jpg image2.jpg\n
+  adding: image1.jpg (deflated 2%)\n
+  adding: image2.jpg (deflated 6%)\n\n
+
+$ ls -l\n
+total 508\n
+-rw-rw-r-- 1 aditi students    451 2012-12-20 17:02 abc.org\n
+-rw-rw-r-- 1 aditi students 250422 2012-12-27 16:30 abc.zip\n
+-rw-rw-r-- 1 aditi students 134964 2012-12-19 20:56 image1.jpg\n
+-rw-rw-r-- 1 aditi students 124945 2012-12-16 12:34 image2.jpg\n\n
+
+Unzip\n\n
+
+Unzip is used to extract the files from the archive. The syntax is:\n
+unzip [archive name]\n
+To extract the files at a specified file location -d option should be used followed by the directory path.\n\n
+
+$ ls\n
+test.zip\n\n  
+
+$ unzip test.zip\n
+Archive:  test.zip\n
+   creating: test/\n
+   creating: test/dir/\n
+  inflating: test/dir/abc.org\n        
+  inflating: test/image2.jpg\n      
+  inflating: test/image1.jpg\n       
+ extracting: test/abc.zip\n       
+  inflating: test/abd\n          
+  inflating: test/abc.org\n\n      
+
+$ unzip test.zip -d dir/\n
+Archive:  test.zip\n
+   creating: dir/test/\n
+   creating: dir/test/dir/\n
+  inflating: dir/test/dir/abc.org\n    
+  inflating: dir/test/image2.jpg\n  
+  inflating: dir/test/image1.jpg\n   
+ extracting: dir/test/abc.zip\n   
+  inflating: dir/test/abd\n      
+  inflating: dir/test/abc.org\n\n        
+
+$ cd dir/\n
+$ ls -l\n
+total 8\n
+-rw-rw-r-- 1 aditi students  451 2012-12-28 10:30 abc.org\n
+drwxrwxr-x 3 aditi students 4096 2012-12-28 11:31 test\n\n
+
+Tar\n\n
+
+Tar is used to convert the files into an archive. The syntax is:\n
+tar [options] [archive name] [file name]\n\n
+
+Tar provides a lot of options. Some of the most common used ones are:\n
+c - used when creating the tar files\n
+v - verbose mode which shows the list of files being archived on the command line\n
+x - extracts the files from the archive\n
+f - indicates that next argument will be the name of new/existing archive file\n\n
+
+Please note that f option should always be the last among all the options used.\n\n
+
+$ ls\n
+test\n\n
+
+$ tar -cvf test.tar test/\n
+test/\n
+test/dir/\n
+test/dir/abc.org\n
+test/image2.jpg\n
+test/image1.jpg\n
+test/abc.tar\n
+test/abc.zip\n
+test/abd\n
+test/abc.org\n\n
+
+$ ls\n
+test test.tar\n\n
+
+$ rm -rf test\n
+$ tar -xvf test.tar\n
+test/\n
+test/dir/\n
+test/dir/abc.org\n
+test/image2.jpg\n
+test/image1.jpg\n
+test/abc.tar\n
+test/abc.zip\n
+test/abd\n
+test/abc.org\n\n
+
+$ ls\n
+test  test.tar\n
+
+By default, tar doesn\'t provide any compression and decompression capabilities. But, it can use external compression utilities like bzip2 and gzip. The options for these utilities are:\n
+j - for compressing and decompressing using bzip2\n
+z - for compressing and decompressing using gzip\n\n
+
+Note: .tgz is same as .tar.gz\n\n
+
+$ ls\n
+test\n\n
+
+$ tar -cjvf test.tar.bz2 test/\n
+test/\n
+test/dir/\n
+test/dir/abc.org\n
+test/image2.jpg\n
+test/image1.jpg\n
+test/abc.tar\n
+test/abc.zip\n
+test/abd\n
+test/abc.org\n\n
+
+$ ls -l\n
+total 728\n
+drwxrwxr-x 3 aditi students 2012-12-28 14:56 test\n
+-rw-rw-r-- 1 aditi students 737525 2012-12-28 15:18 test.tar.bz2\n\n
+
+$ tar -czvf test.tar.gz test/\n
+test/\n
+test/dir/\n
+test/dir/abc.org\n
+test/image2.jpg\n
+test/image1.jpg\n
+test/abc.tar\n
+test/abc.zip\n
+test/abd\n
+test/abc.org\n\n
+
+$ ls -l\n
+total 984\n
+drwxrwxr-x 3 aditi students    4096 2012-12-28 14:56 test\n
+-rw-rw-r-- 1 aditi students 737525 2012-12-28 15:18 test.tar.bz2\n
+-rw-rw-r-- 1 aditi students 1003263 2012-12-28 15:26 test.tar.gz\n\n
+
+$ cd test/\n
+$ ls -l\n
+total 1028\n
+-rw-rw-r-- 1 aditi students    451 2012-12-20 17:02 abc.org\n
+-rw-rw-r-- 1 aditi students 522240 2012-12-28 14:46 abc.tar\n
+-rw-rw-r-- 1 aditi students 250981 2012-12-28 10:31 abc.zip\n
+-rw-rw-r-- 1 aditi students    451 2012-12-28 10:30 abd\n
+drwxrwxr-x 2 aditi students   4096 2012-12-28 10:30 dir\n
+-rw-rw-r-- 1 aditi students 134964 2012-12-19 20:56 image1.jpg\n
+-rw-rw-r-- 1 aditi students 124945 2012-12-16 12:34 image2.jpg\n\n
+
+Gzip\n\n
+
+Gzip is a compression utility which compresses only the files. To decompress using gzip, -d option is used. The command deletes the original file and creates a compressed file appending the file name with the extension .gz.\n\n
+
+This compression can be used along with tar command using the option z.\n\n
+
+$ ls\n
+abcd.org test/\n\n
+
+$ gzip abcd.org\n
+$ ls\n
+abcd.org.gz test/\n\n
+
+$ gzip -d abcd.org.gz\n
+$ls\n
+abcd.org test/\n\n
+
+Gunzip\n\n
+
+Gunzip is a decompression utility which can decompress files created by gzip, zip and compress. The command decompresses the file, checks for the integrity of the uncompressed file and, then, deletes the compressed file and stores the original file.\n\n
+
+$ ls\n
+abcd.org.gz  test/\n\n
+
+$ gunzip abcd.org.gz\n
+$ ls\n
+abcd.org  test/\n\n
+
+Bzip2\n\n
+
+Bzip2 provides a high rate of lossless compression when compared to Gzip and Zip. But, it is slower than either. The command, like Gzip, deletes the original file and creates a compressed file by appending the file name with .bz2 file extension.\n\n
+
+The original files can be retained using -k option. The file can be decompressed using the -d option. Since bzip2 doesn\'t archive the files, the command does not work on the directories. -v provides the verbose option.\n\n
+
+This compression can be used along with tar command using the option j.\n\n
+
+$ ls\n
+abcd.org test/\n\n
+
+$ bzip2 -v abcd.org\n
+  abcd.org:  no data compressed.\n\n
+
+$ ls\n
+abcd.org.bz2 test/\n\n
+
+$ bzip2 -d abcd.org.bz2\n
+$ ls\n
+abcd.org test/\n\n
+
+$ bzip2 -k abcd.org\n
+abcd.org abcd.org.bz2 test/\n\n
+
+Bunzip2\n\n
+
+Bunzip2 is a decompression utility which decompresses only the files with extensions .bz2, .bz, .tbz2, .tbz. In case of any other file name, it throws an error. Like Gunzip, it also decompresses the file, checks for the integrity of the decompressed file, deletes the compressed file and restores the original file.\n\n
+
+$ ls\n
+abcd.org.bz2  test/\n\n
+
+$ bunzip2 abcd.org.bz2\n
+$ ls\n
+abcd.org  test/</string>
+    <string name="exp6">        In order to understand the output of the commands used in this experiment, you should know the terminologies used. Some of them are given below.\n\n
+
+Process:\n
+A process is a running instance of a program. Sometimes it can be referred to as a task.\n
+A program is a set of instructions that are meant to perform a specific task.\n\n
+
+Memory units:\n
+1 Kilo Byte (KB) = 1024 Bytes\n
+1 Mega Byte (MB) = 1024 Kilo Bytes\n
+1 Giga Byte (GB) = 1024 Mega Bytes\n
+1 Tera Byte (TB) = 1024 Giga Bytes\n\n
+
+The following are the list of Linux commands which are used to get the system information. The commands are divided according to their area of usage.\n\n
+
+Main Memory Usage\n
+1. free:\n\n
+
+The \'free\' command prints the amount of total, free and used RAM (and swap) memory in the system, as well as the buffers used by the kernel.\n\n
+
+aditi@mylaptop:~$ free\n
+             total       used       free     shared    buffers     cached\n
+Mem:       1918584    1549980     368604          0     180488     704172\n
+-/+ buffers/cache:     665320    1253264\n
+Swap:      9577468          0    9577468\n\n      
+
+\"-h\" option is used to get the numbers in human readable format, scaled to shortest three digit unit and display the units of print out. The units are mentioned above.\n\n
+
+aditi@mylaptop:~$ free -h\n
+             total       used       free     shared    buffers     cached\n
+Mem:          1.8G       1.5G       361M         0B       176M       687M\n
+-/+ buffers/cache:       648M       1.2G\n
+Swap:         9.1G         0B       9.1G\n\n
+
+    The \"total\" column of \"Mem:\" row indicates the memory size of the RAM. Here, in the above output, you can see that the RAM is of 1.8GB, of which 1.5GB is currently in use and 361MB is free.\n
+    Since the memory used for buffers and cache can easily be reclaimed for use by applications, the second row (-/+ buffers/cache) provides an indication of the memory actually used by applications (the \"used\" column) or available to applications (the \"free\" column). Here you can see that the actual RAM used by the applications is 648MB and the available RAM is 1.2GB. That means, the actual load is of 648MB only.\n
+    The other options can be ignored for now. Run manual (man free) to see more information about \"free\" command.\n\n
+
+Process related commands\n
+1. ps\n\n
+
+The ps (process status) command is used to provide information about the currently running processes, including their process identification numbers (PIDs). Every process is assigned a unique PID by the system.\n\n
+
+aditi@mylaptop:~$ ps\n
+ PID TTY          TIME CMD\n
+5957 pts/2    00:00:00 bash\n
+6147 pts/2    00:00:00 ps\n\n
+
+When ps is used without any option, it gives an output of running processes in the current shell, with four items of information. At least two processes will be displayed because those must be currently running on that shell: the shell and ps.\n\n
+
+A common and convenient way of using ps to obtain much more complete information about the processes currently on the system is to use the \"aux\" option, where:\n\n
+
+    a\n
+    option is to list the processes of all users on the system rather than just those of the current user with the exception of processes not associated with a terminal.\n
+    u\n
+    option tells ps to provide detailed information about each process. This option doesn\'t give the processes which do not have a controlling terminal/shell.\n
+    x\n
+    option adds to the list processes that have no controlling terminal, such as daemons, which are programs that are launched during booting.\n\n
+
+aditi@mylaptop:~$ ps aux\n
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\n
+root         1  0.0  0.0  10636   828 ?        Ss   22:02   0:00 init [2]\n 
+root         2  0.0  0.0      0     0 ?        S    22:02   0:00 [kthreadd]\n
+root      3942  0.0  0.0   8040   812 tty4     Ss+  22:04   0:00 /sbin/getty 38400 tty4\n
+root      3943  0.0  0.0   8040   812 tty5     Ss+  22:04   0:00 /sbin/getty 38400 tty5\n
+aditi     6123  0.1  1.5 211404 30320 pts/1    S+   22:53   0:02 emacs overall_commands.org\n
+www-data  6150  0.0  0.5 243240  9980 ?        S    22:54   0:00 /usr/sbin/apache2 -k start\n
+root      6242  0.0  0.0      0     0 ?        S    22:56   0:00 [kworker/0:0]\n
+aditi     6750  0.0  0.0   8612  1120 pts/2    R+   23:28   0:00 ps aux\n\n
+
+As the list of processes can be quite long and occupy more than a single screen, the output of \"ps aux\" cant be seen in a single screen. You need to scroll up to see the complete list.\n\n
+
+The output gives more columns when \"aux\" is used. Some of the output columns are explained below. The remaining can be ignored for now.\n\n
+
+    USER\n
+    User who is owning/running the process\n
+    %CPU\n
+    It is the CPU time used divided by the time the process has been running. It means, the percentage of CPU resource it is using.\n
+    %MEM\n
+    Percentage of RAM memory it is using.\n
+    START\n
+    starting time or date of the process\n
+    TIME\n
+    cumulative CPU time the process is using.\n
+    COMMAND\n
+    command with all its arguments.\n\n
+
+2. top\n\n
+
+The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of processes or threads currently being managed by the Linux kernel.\n\n
+
+The program provides you an interactive interface for process manipulation as well as for personal configuration.\n\n
+
+aditi@mylaptop:~$ top\n
+top - 23:14:54 up  1:40,  3 users,  load average: 1.03, 1.03, 0.87\n
+Tasks: 179 total,   2 running, 177 sleeping,   0 stopped,   0 zombie\n
+%Cpu(s):  0.7 us,  0.2 sy,  0.0 ni, 98.6 id,  0.6 wa,  0.0 hi,  0.0 si,  0.0 st\n
+KiB Mem:   1918584 total,  1821848 used,    96736 free,   195076 buffers\n
+KiB Swap:  9577468 total,        0 used,  9577468 free,   795388 cached\n\n
+
+ PID USER   PR  NI  VIRT  RES  SHR S  %CPU %MEM    TIME+  COMMAND\n
+4506 aditi  20   0  998m 108m  29m S   1.7  5.8   3:39.68 gnome-shell\n
+2838 root   20   0  158m  24m 8144 S   1.0  1.3   5:23.14 Xorg\n
+4611 aditi  20   0 1176m 261m  40m S   0.7 13.9  11:59.15 firefox-bin\n
+4782 aditi  20   0  404m  55m  19m S   0.7  3.0   0:27.00 plugin-containe\n
+6602 aditi  20   0  422m  36m  17m S   0.3  2.0   0:20.09 /usr/bin/termin\n
+6729 aditi  20   0  207m  30m  13m S   0.3  1.6   0:08.01 emacs\n
+8909 aditi  20   0     0    0    0 S   0.3  0.0   0:02.10 kworker/0:1\n
+9586 aditi  20   0 15072 1544 1084 R   0.3  0.1   0:00.09 top\n
+   1 root   20   0 10636  832  696 S   0.0  0.0   0:01.03 init\n
+   2 root   20   0     0    0    0 S   0.0  0.0   0:00.00 kthreadd\n
+   3 root   20   0     0    0    0 S   0.0  0.0   0:00.48 ksoftirqd/0\n
+   6 root   rt   0     0    0    0 S   0.0  0.0   0:00.00 migration/0\n\n
+
+    In the above output, first five lines are called summary output, which gives the summary of the system load and processes. In third line, if the CPUs id (idle percentage) is very less (here, it is 98.6), then the processor is too busy. You can check that which process is using more CPU time by looking at the above sorted table of processes.\n
+    Press \"h\" to see the help for the interactive commands.\n
+    Press \"q\" to quit the \"top\".\n
+    By default, sorting of the process is done based on the CPU time usage by the processes.\n
+    Most of the columns are identical to ps command output. The other columns can be ignored for now.\n\n
+
+User information related commands\n
+1. w\n\n
+
+w displays information about the users currently on the machine, and their current process.\n\n
+
+aditi@mylaptop:~$ w\n
+13:45:49 up  5:10,  6 users,  load average: 0.30, 0.51, 0.51\n
+USER    TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT\n
+root    tty2                      13:44    1:04   0.09s  0.07s -bash\n
+aditi   tty7     :0               08:37    5:10m  7:24   0.08s gdm-session-worker [pam/gdm3]\n
+aditi   pts/0    :0               10:19    3:25m  1:05   1:05  emacs content.html\n
+aditi   pts/1    :0               10:19    3:26m 13.13s 13.02s emacs overall_commands.org\n
+aditi   pts/2    :0               12:34    0.00s  0.23s  0.00s w\n
+aditi   pts/3    14.139.82.11     13:50    4.00s  0.15s  0.15s -bash\n\n
+
+    The header\n
+    The header (first line of output) shows in the order, the current time, how long the system has been running, how many users are currently logged in, and the system load averages for the past 1, 5, and 15 minutes.\n
+    USER is the username of the logged in user.\n
+    LOGIN@ is the time when the user is logged in.\n
+    WHAT is the command running currently by that respective user.\n
+    Ignore the remaining columns for now.\n\n
+
+2. whoami\n\n
+
+whoami prints the user name of the current user. i.e., as which user the \"whoami\" command is being run.\n\n
+
+aditi@mylaptop:~$ whoami\n
+aditi\n\n
+
+3. users\n\n
+
+users prints the user names of all users currently logged in to the system.\n\n
+
+aditi@mylaptop:~$ users\n
+aditi aditi aditi root\n\n
+
+System Information related commands\n
+1. uname -a\n\n
+
+It prints the GNU/Linux distribution (Operating System) information currently running.\n\n
+
+\'-a\' prints all the information in the following order:\n\n
+
+    the kernel name\n
+    the network node hostname\n
+    the kernel release\n
+    the kernel version\n
+    the machine hardware name\n
+    the operating system\n\n
+
+aditi@mylaptop:~$ uname -a\n
+Linux debian 3.2.0-3-amd64 #1 SMP Mon Jul 23 02:45:17 UTC 2012 x86_64 GNU/Linux\n\n
+
+2. more /etc/issue\n\n
+
+The \"/etc/issue\" file will contain the information about the GNU/Linux distribution which is currently running.\n\n
+
+aditi@mylaptop:~/$ more /etc/issue\n
+Debian GNU/Linux wheezy/sid \n \l\n\n
+	      
+CPU information\n
+1. more /proc/cpuinfo\n\n
+
+The kernel data which Linux exposes in /proc/cpuinfo file, will show each logical CPU with a unique processor number. A logical CPU can be a hyper-threading sibling, a shared core in a dual or quad core, or a separate physical CPU. Most of the time, all the logical CPUs will have identical values.\n\n
+
+aditi@mylaptop:~$ more /proc/cpuinfo\n
+processor	: 0\n
+vendor_id	: GenuineIntel\n
+cpu family	: 6\n
+model		: 37\n
+model name	: Intel(R) Core(TM) i3 CPU       M 370  @ 2.40GHz\n
+stepping	: 5\n
+microcode	: 0x2\n
+cpu MHz		: 933.000\n
+cache size	: 3072 KB\n
+physical id	: 0\n
+siblings	: 4\n
+core id		: 0\n
+cpu cores	: 2\n
+apicid		: 0\n
+initial apicid	: 0\n
+fpu		: yes\n
+fpu_exception	: yes\n
+cpuid level	: 11\n
+wp		: yes\n
+flags		: fpu vme de pse tsc msr pae mce cx8\n
+apic sep mtrr pge mca cmov pat pse36 clflush dts acpi\n
+mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm\n
+constant_tsc arch_perfmon pebs bts rep_good nopl\n
+xtopology nonstop_tsc aperfmperf pni dtes64 monitor\n
+ds_cpl vmx est tm2 ssse3 cx16 xtpr pdc m pcid sse4_1\n
+sse4_2 popcnt lahf_lm arat dtherm tpr_shadow vnmi\n
+flexpriority ept vpid\n
+bogomips	: 4787.69\n
+clflush size	: 64\n
+cache_alignment	: 64\n
+address sizes	: 36 bits physical, 48 bits virtual\n
+power management:\n\n
+
+    The above output is for one logical processor. As it has 4 siblings, the same output will be repeated for 3 more logical processors. Each logical processor is identified with a unique id in the first line (processor) itself.\n
+    As the output shows, it has 2 CPU cores. That means, its a dual core processor and each core processor has one sibling, total of 4 siblings.\n
+    It also shows that who is the vendor of the processor, what is the model name and the capacity of processor (in GHz).\n
+    If you want to know whether the processor is of 32bit or 64bit, you have to check the flags. If \"lm\" flag is present in the above output of \"more /proc/cpuinfo\" (end of 3rd line of flags), then the processor is of 64bit. If not, its a 32bit processor.\n
+    The other fields can be ignored for now.\n\n
+
+Disk usage information\n
+1. df\n\n
+
+df displays the amount of disk space available/used on the file system (disk drives) currently being used (mounted).\n\n
+
+If an argument is the absolute file name of a disk device node containing a mounted file system, df shows the space available on that file system rather than on the file system containing the device node (which is always the root file system).\n\n
+
+-h option is used to print sizes in human readable format (e.g., 1K 234M 2G)\n\n
+
+aditi@mylaptop:~$ df -h\n
+Filesystem        Size  Used Avail Use% Mounted on\n
+rootfs            187G  108G   70G  61% /\n
+udev               10M     0   10M   0% /dev\n
+tmpfs             188M  788K  187M   1% /run\n
+tmpfs             5.0M     0  5.0M   0% /run/lock\n
+tmpfs             2.2G  496K  2.2G   1% /run/shm\n
+/dev/sda4         177G  158G   11G  94% /media/data\n\n
+
+The output shows\n\n
+
+    the Filesystem (or device node) name,\n
+    the total Size of the disk,\n
+    how much of the disk being Used,\n
+    how much of the disk space is Available and\n
+    how much percentage of disk is used.\n\n
+
+Ignore the \"Mounted on\" for now as it is out of the scope of this tutorial.\n\n
+
+Miscellaneous\n
+1. date\n\n
+
+date command displays the current time in the given FORMAT, or set the system date.\n\n
+
+If no argument is given, date command prints the current date and time.\n\n
+
+aditi@mylaptop:~$ date\n
+Sat Dec 29 17:04:07 IST 2012\n\n
+
+Look for manual page of date command (man date)to see the FORMAT strings. Setting the date and time using date is out of the scope of this tutorial.\n
+2. cal\n\n
+
+The cal command displays a simple calendar. When cal command is invoked without any arguments, the calendar of the current month is displayed, highlighting the current day.\n\n
+
+aditi@mylaptop:~$cal\n
+   December 2012\n
+Su Mo Tu We Th Fr Sa\n
+                   1\n
+ 2  3  4  5  6  7  8\n
+ 9 10 11 12 13 14 15\n
+16 17 18 19 20 21 22\n
+23 24 25 26 27 28 29\n
+30 31\n\n
+
+Some useful options:\n\n
+
+    -m month\n
+    Displays the specified month.\n
+    -y year\n
+    Displays a calendar for the specified year. This option is implied when a year but no month are specified on the command line.\n
+    -3\n
+    Displays the previous, current and next month surrounding today.\n\n
+
+Look for the manual page of cal command (man cal) for more options.\n
+3. uptime\n\n
+
+uptime gives a one-line display of the information, viz., the current time, how long the system has been running, how many users are currently logged in, and the system load averages for the past 1, 5, and 15 minutes.\n\n
+
+This is the same information contained in the header line displayed by w command.\n\n
+
+aditi@mylaptop:~$uptime\n
+13:45:49 up  5:10,  6 users,  load average: 0.30, 0.51, 0.51</string>
+    <string name="exp7" formatted="false">Standard Input, Standard Output, Standard Error\n\n
+
+There are three important concepts you should know about: standard input, standard output and standard error.\n\n
+
+Standard input (stdin) is the standard input stream. Normally, the standard input stream is the keyboard. The standard input is file descriptor 0.\n\n
+
+Standard Output (stdout) is the standard output stram. Normally, it is the terminal from which the program was run. The standard output is file descriptor 1.\n\n
+
+Standard Error (stderr) is the standard error stream. It is independent of standard output. The default standard error stream is the terminal from which the program was run. The standard error is file descriptor 2.\n\n
+
+File descriptors are a low-level Linux abstraction. Details of this are not required for this experiment. You can simply consider file descriptor 0, file descriptor 1 and file descriptor 2 as different classifications of the input stream, the output stream and the error stream by the system.\n\n
+Pipes and Redirection\n\n
+
+It is often convenient to take input from locations other than the default streams, such as a file or the output of another command. Pipes and redirections are operators which are used to redirect the input and output of commands to another location. Some commonly used pipes and redirects are: >, >>, &lt;, |, 2> and $().\n\n
+> Redirection\n\n
+
+> prints the output from the command to the specified file. If the file already exists, it is overwritten.\n\n
+
+aditi@mylaptop$ ls\n
+example.txt  all_about_console.txt my_project\n
+aditi@mylaptop$ ls > out.txt\n
+aditi@mylaptop$ cat out.txt\n
+example.txt  all_about_console.txt my_project\n\n
+	
+
+>> Redirection\n\n
+
+>> appends the output from the command to the specified file.\n\n
+
+aditi@mylaptop$ ls >> out.txt\n
+text appended at end\n
+aditi@mylaptop$ cat out.txt\n
+example.txt  all_about_console.txt my_project\n
+example.txt  all_about_console.txt my_project\n\n
+	
+
+&lt; Redirection\n\n
+
+&lt; reads the command input from the specified file.\n\n
+
+aditi@mylaptop$ cat f1.txt\n
+d\n
+a\n
+c\n
+b\n
+e\n
+aditi@mylaptop$ sort &lt; f1.txt\n
+a\n
+b\n
+c\n
+d\n
+e\n\n
+
+sort command is run on the contents of \'f1.txt\' and the sorted output is printed to stdout.\n\n
+
+aditi@mylaptop$ sort &lt; f1.txt > f1_sort.txt\n
+aditi@mylaptop$ cat f1_sort.txt\n
+a\n
+b\n
+c\n
+d\n
+e\n\n
+
+Here the sorted output of \'f1.txt\' is printed in \'f1_sort.txt\'.\n\n
+2> Redirection\n\n
+
+2> passes the error output from the command to the specified file. Here, 2 is a reference to the file descriptor of the error stream. When redirecting the output stream, file descriptor 1 is assumed by default and so there is no need to specify the file descriptor number for stdout.\n\n
+
+aditi@mylaptop$ mkdir /x 2> err.txt\n
+aditi@mylaptop$ cat err.txt\n
+mkdir: cannot create directory `/x\': Permission denied\n
+aditi@mylaptop$ cat f1.txt 2> out.txt\n
+d\n
+a\n
+c\n
+b\n
+e\n
+aditi@mylaptop$ cat out.txt\n\n
+aditi@mylaptop$\n\n 
+	
+
+Pipe\n\n
+
+| passes the output from the command on the left side of the pipe as input to the command on the right side of the pipe.\n\n
+
+aditi@mylaptop$ ps aux | more\n\n
+	
+
+All the commands running on the system are displayed one screen at a time.\n\n
+
+aditi@mylaptop$ cat f1.txt\n
+d\n
+a\n
+c\n
+b\n
+e\n
+aditi@mylaptop$ cat f1.txt | sort\n
+a\n
+b\n
+c\n
+d\n
+e\n\n
+
+Prints the sorted contents of \'f1.txt\'.\n\n
+$() redirection\n\n
+
+$() returns the output of the command, instead of writing it to stdout. Useful for passing it as the parameter of another command.\n\n
+
+aditi@mylaptop$ touch $(ls *.c)\n\n
+	
+
+Updates timestamp on all .c files in current folder\n\n
+
+aditi@mylaptop$ wc $(ls *.txt)\n\n
+	
+
+Displays number of characters, words and lines in all text files in current folder.\n\n
+
+aditi@mylaptop$ chmod 755 $(ls *.org)\n\n
+	
+
+Changes permissions of all .org files in current folder to 755.\n\n
+
+aditi@mylaptop$ head -n 5 $(ls *.c)\n\n
+	
+
+Displays the first five lines (typically include statements) of all C files in current folder.\n\n
+
+aditi@mylaptop$ tar cf "$(date +\'%Y-%m-%d %H%M\').tar" imp\n
+aditi@mylaptop$ ls\n
+example.txt  all_about_console.txt my_project imp 2012-12-31 1142.tar\n\n
+	
+
+Take backup of \'imp\' folder in a tar file, where name of tar file reflects current date and time.</string>
+    <string name="exp8" formatted="false">grep Command\n\n
+
+grep is an extremely powerful search utility. grep searches the specified file for the lines matching the input pattern given as an argument to the command. By default, for each line that matches or contains a match to the input pattern, it prints that line as an output.\n\n
+
+The syntax for using grep command is:\n
+grep [OPTIONS] PATTERN [FILE...]\n
+where OPTIONS are the various options available with the grep command, PATTERN is the input pattern to search for, FILE is the file containing the text which is matched against the pattern.\n\n
+
+The input pattern should always be enclosed within single-quotes. Input pattern can also be mentioned as a regular expression.\n\n
+
+Regular Expressions\n\n
+Regular expressions are used to specify a sequence of characters given as input. To explain the usage of grep command with regular expressions, a test file example.txt has been created as shown below.\n\n
+
+$ cat example.txt\n
+123456\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ABCDefgh1234\n
+ab*23\n\n
+
+The rules for constructing regular expressions have been explained below.\n\n
+
+1. Any character is a pattern that matches itself. Thus, each of the character is a regular expression in itself.\n\n
+
+$ grep \'a\' example.txt\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ab*23\n\n
+
+The command matches \'a\' in every line of the file. Please note that when the command is executed in the shell, the pattern given in the command is highlighted in the output. Thus, in the above example, every occurrence of \'a\' is highlighted in red color in the shell.\n\n
+
+This rule doesn\'t apply to some special characters like \'*\',\'.\' etc. To match these special characters, backslash (\'\\\') should precede them to escape the characters.\n\n
+
+2. Concatenation: Concatenation is achieved by writing regular expression in sequence. For example, regular expressions \'a\' and \'b\' can be concatenated to form a single regular expression \'ab\'.\n\n
+
+White space characters like space are also treated as regular expressions. The strings \'ab\' and \'a b\' are two different regular expressions.\n\n
+
+$ grep \'ab\' example.txt \n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ab*23\n\n
+
+$ grep \'a b\' example.txt\n
+$\n\n
+
+All the lines with the pattern \'ab\' are printed. But, for the second command, there is no output because there is not pattern \'a b\' in the file.\n\n
+
+3. Brackets ([]): A list of characters enclosed within \'[\' and \']\' matches any single character in that list.\n\n
+
+$ grep \'[abcd]\' example.txt\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ab*23\n\n
+
+4. The meta character \'-\' is used to specify the range of characters for pattern matching. For example, if a string might include any alphabet, regular expression to match the pattern is written as [a-z].\n\n
+
+$ grep \'[0-9]\' example.txt\n
+123456\n
+ABCDefgh1234\n
+ab*23\n\n
+
+The first command matches the lines with numeric digits in it.\n\n
+
+5. The meta characters \'^\' and \'$\' are used to match the beginning and end strings or patterns.\n
+^ - matches the characters or string at the beginning of the line\n
+$ - matches the characters or string at the end of the line\n\n
+
+$ grep \'^ab\' example.txt\n
+abcdefgh\n
+abababab\n
+ab*23\n\n
+
+$ grep \'ab$\' example.txt\n
+abababab\n\n
+
+The first command in the above example outputs the lines which start with \'ab\'. The second command outputs the lines which end with \'ab\' string.\n\n
+
+6. Dot Character: The \'.\' meta character is used to match any single character. For example, the following command matches any pattern which start with \'a\' and ends with \'3\' and has any three characters in between.\n\n
+
+$ grep \'a...3\' example.txt\n
+ab*23\n\n
+
+7. Repititions: The following operators repeat the occurrence of any character to which they are applied.\n
+* - matches preceding pattern zero or more times\n
+? - matches preceding pattern at most one time\n
++ - matches preceding pattern at least once\n
+{n} - matches preceding pattern exactly n times\n
+{n,} - matches preceding pattern n or more times\n
+{n,m} - matches preceding pattern at least n and at most m times\n\n
+
+Note: Except \'*\', all the operators have to be preceded with backslash (\'\\\').\n\n
+
+$ grep \'a*\' example.txt\n
+123456\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ABCDefgh1234\n
+ab*23\n\n
+
+The above command outputs all the strings which start with a zero or more times.\n\n
+
+$ grep \'^ab*\' example.txt\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ab*23\n\n
+
+The above command outputs all the strings which start with \'a\' and is followed by \'b\' zero or more times.\n\n
+
+$ grep \'^\(ab\)\(ab\)*\' example.txt\n
+abcdefgh\n
+abababab\n
+ab*23\n\n
+
+The above command searches for all the patterns in the text file which start with \'ab\' and may or not have any more \'ab\' pattern.\n\n
+
+$ grep \'^ab\?\' example.txt\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ab*23\n\n
+
+The above command searches for all the patterns which start with \'a\' and followed by zero or one \'b\'.\n\n
+
+$ grep \'^ab\+\' example.txt\n
+abcdefgh\n
+abababab\n
+ab*23\n\n
+
+The above command searches for all the patterns which start with \'a\' and followed by at least one \'b\'.\n\n
+
+$ grep \'.\{10\}\' example.txt\n
+ABCDefgh1234\n\n
+
+The above command searches for a string exactly 10 characters long.\n\n
+
+$ grep \'.\{6,\}\' example.txt\n
+123456\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ABCDefgh1234\n\n
+
+The above command searches for a string at least 6 characters long.\n\n
+
+$ grep \'.\{6,10\}\' example.txt\n
+123456\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ABCDefgh1234\n\n
+
+The above command searches for a string at least 6 characters long and at most 10 characters long.\n\n
+
+8. Parentheses \'()\' can be used to denote a regular expressions. \'abcd\' is concatenation of four regular expressions \'a\', \'b\', \'c\'and \'d\', but \'(ab)cd\' is a concatenation of three regular expressions \'ab\', \'c\' and \'d\'.\n\n
+
+Note: Parentheses are treated as part of the string unless they are escaped with backslash(\'\\\').\n\n
+
+$ grep \'\(ab\)cd\' example.txt\n
+$ grep \'\(ab\)*cd\' example.txt\n
+abcdef gefrd geef\n
+(ab)cd\n
+abghefcd\n
+aaaaaaacd\n
+bbbbbbbcdfeg\n
+ababababcdefgh\n
+abcdefgh\n
+abcdefgh\n\n
+
+Since, there is no \'ab\' string enclosed within brackets, the first command does not give any output. But, the second command matches the string pattern given because of the use of backslash before the parentheses.\n\n
+
+Options\n\n
+
+Grep can be used with the following options:\n
+v - it reverses the pattern specified and prints all the lines that DO NOT match the specified regular expression\n\n
+
+$ grep \'\(1234\)\' example.txt\n
+123456\n
+ABCDefgh1234\n\n
+
+$ grep -v \'\(1234\)\' example.txt\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ab*23\n\n
+
+Compare the above commands and note the difference.\n\n
+
+A (num) - grep takes a numeric value num as an argument and prints num lines of the file text after the pattern match\n\n
+
+$ grep -A 2 \'ab*\' example.txt\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ABCDefgh1234\n
+ab*23\n\n
+
+In the above output, the command prints two lines after every pattern match.\n\n
+
+B (num) - as opposed to the A option, this option prints num lines of text in the file BEFORE the pattern match\n\n
+
+$ grep -B 2 \'ab*\' example.txt\n
+123456\n
+abcdefgh\n
+aabbaabb\n
+abababab\n
+ABCDefgh1234\n
+ab*23\n\n
+
+c - it prints the number of lines matching the pattern specified\n\n
+
+$ grep -c \'ab*\' example.txt\n
+4\n\n
+
+o - the option prints only the matched patterns\n\n
+
+$ grep -o \'ab*\' example.txt\n
+ab\n
+a\n
+abb\n
+a\n
+abb\n
+ab\n
+ab\n
+ab\n
+ab\n
+ab\n\n
+
+find Command\n\n
+
+The find command is used to locate files on Linux system. The command searches for the set of directory specified in the argument for the files. The syntax for find is:\n\n
+find [path] [option] [file name / expression]\n\n
+where path is the directory where the file is to be located, file name is the file to be located and expression are the regular expressions which can be used for pattern matching.\n\n
+
+Executing find in the terminal lists down all the files in the current directory. The command recursively searches all the files and folders in the directory.\n\n
+
+$ ls\n
+abcd.org test/\n\n
+
+$ find\n
+.\n
+./test\n
+./test/dir\n
+./test/dir/abc.org\n
+./test/image2.jpg\n
+./test/image1.jpg\n
+./test/abc.tar\n
+./test/abc.zip\n
+./test/abd\n
+./test/abc.org\n
+./abcd.org\n\n
+
+find command provides many options for use. In this tutorial, only two commonly used options would be explained. For further information, please refer to the man page of find.\n\n
+iname - takes an argument and recursively searches the specified directory for the given file name or pattern\n
+delete - sometimes, the files no longer needed have to be deleted. So, find command is used to locate them and delete is used to delete the files\n\n
+
+$ find -iname abc.org\n
+./test/dir/abc.org\n
+./test/abc.org\n\n
+
+To find the files in a specified directory,\n\n
+
+$ find test/ -iname abc.org\n
+test/test/dir/abc.org\n
+test/test/abc.org\n\n
+
+To search for a file using a regular expression pattern,\n\n
+
+$ find test/ -iname \'ab*\'\n
+test/test/dir/abc.org\n
+test/test/abc.tar\n
+test/test/abc.zip\n
+test/test/abd\n
+test/test/abc.org\n
+test/abcd.org\n\n
+
+To delete the specified file,\n\n
+
+$ find test/ -iname abc.org -delete\n\n
+
+Please note that the delete Option should be used with caution. It should always be at the end of the command arguments. If the delete option is used before iname, all the files and folders would be deleted. The command does not ask for permission or provide any warning, whatsoever, before execution.\n\n
+Conclusion\n\n
+
+The grep and find commands have been explained in the theory section. Now, the user should be able use these commands to locate files in the directories easily. For further information on the commands, please refer to the Further Readings Section.</string>
+    <string name="exp9" formatted="false">What is an IP address?\n\n
+
+An IP address is a way to identify a network device, e.g. a computer, on a network. In order to connect to a computer, you need to know its IP address.\n\n
+
+A computer can have multiple IP addresses e.g. one for each interface it has. An interface can be wired or wireless.\n\n
+
+How to find this machine\'s IP address?\n\n
+
+Running the command \"/sbin/ifconfig\" will display the IP addresses of each interface on the machine.\n\n
+
+The example below shows that the machine has three interfaces: eth0, lo and wlan0. (Note: the naming of the interfaces varies with different linux distributions, so you may see different interface names on your machine.)\n\n
+
+    \"eth0\" is the wired interface (eth stands for ethernet). The machine\'s IP address for this interface is 10.9.24.110.\n
+    \"lo\" interface is a local interface i.e. it cannot be used for communicating across the network. This interface is present on all computers. It\'s IP address is always 127.0.0.1.\n
+    \"wlan0\" is the wireless interface. It\'s IP address is 10.9.24.231.\n
+    This machine can be contacted via either of the two IP addresses 10.9.24.110 and 10.9.24.231.\n\n
+
+aditi@mylaptop:~$ /sbin/ifconfig \n
+eth0      Link encap:Ethernet  HWaddr 60:eb:69:5e:a9:22  \n
+          inet addr:10.9.24.110  Bcast:10.9.24.255  Mask:255.255.255.0\n
+          inet6 addr: fe80::62eb:69ff:fe5d:a1f2/64 Scope:Link\n
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n
+          RX packets:1797096 errors:0 dropped:0 overruns:0 frame:0\n
+          TX packets:1167412 errors:0 dropped:0 overruns:0 carrier:0\n
+          collisions:0 txqueuelen:1000 \n
+          RX bytes:951537984 (951.5 MB)  TX bytes:99185523 (99.1 MB)\n
+          Interrupt:40 Base address:0x2000 \n\n
+
+lo        Link encap:Local Loopback  \n
+          inet addr:127.0.0.1  Mask:255.0.0.0\n
+          inet6 addr: ::1/128 Scope:Host\n
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1\n
+          RX packets:42427 errors:0 dropped:0 overruns:0 frame:0\n
+          TX packets:42427 errors:0 dropped:0 overruns:0 carrier:0\n
+          collisions:0 txqueuelen:0 \n
+          RX bytes:26128666 (26.1 MB)  TX bytes:26128666 (26.1 MB)\n\n
+
+wlan0     Link encap:Ethernet  HWaddr 60:eb:69:5e:a9:23  \n
+          inet addr:10.9.24.231  Bcast:10.9.24.255  Mask:255.255.255.0\n
+          inet6 addr: fe80::f27b:cbff:fea1:1581/64 Scope:Link\n
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n
+          RX packets:440021 errors:0 dropped:0 overruns:0 frame:0\n
+          TX packets:98766 errors:0 dropped:0 overruns:0 carrier:0\n
+          collisions:0 txqueuelen:1000 \n
+          RX bytes:86138146 (86.1 MB)  TX bytes:13110795 (13.1 MB)\n\n
+
+How to check if this machine is connected to other machines, to the Internet?\n\n
+
+Run the \"ping\" command with an IP address you want to test e.g. 10.9.24.1. Press CTRL-C when you want to stop pinging. The ping command\'s response below shows that out of 3 packets transmitted to the remote machine, all 3 were acknowledged (received) with none of the packets being lost and it took a total of about 2 seconds.\n\n
+
+aditi@mylaptop:~$ ping 10.9.24.1\n
+PING 10.9.24.1 (10.9.24.1) 56(84) bytes of data.\n
+64 bytes from 10.9.24.1: icmp_req=1 ttl=255 time=0.787 ms\n
+64 bytes from 10.9.24.1: icmp_req=2 ttl=255 time=1.20 ms\n                                                     
+64 bytes from 10.9.24.1: icmp_req=3 ttl=255 time=0.782 ms \n                                                      
+^C\n                                                   
+--- 10.9.24.1 ping statistics ---\n
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms\n
+rtt min/avg/max/mdev = 0.782/0.924/1.203/0.197 ms\n                                                
+aditi@mylaptop:~$\n\n
+
+To check Internet access, run the \"ping\" command with a web service name e.g. www.google.com\n\n
+
+aditi@mylaptop:~$ ping www.google.com\n
+PING www.google.com (173.194.36.17) 56(84) bytes of data.\n
+64 bytes from bom04s01-in-f17.1e100.net (173.194.36.17): icmp_req=1 ttl=52 time=33.1 ms\n
+64 bytes from bom04s01-in-f17.1e100.net (173.194.36.17): icmp_req=2 ttl=52 time=33.1 ms\n                       
+64 bytes from bom04s01-in-f17.1e100.net (173.194.36.17): icmp_req=3 ttl=52 time=33.1 ms\n                       
+64 bytes from bom04s01-in-f17.1e100.net (173.194.36.17): icmp_req=4 ttl=52 time=32.9 ms\n                       
+64 bytes from bom04s01-in-f17.1e100.net (173.194.36.17): icmp_req=5 ttl=52 time=32.7 ms\n                       
+64 bytes from bom04s01-in-f17.1e100.net (173.194.36.17): icmp_req=6 ttl=52 time=33.2 ms\n                       
+64 bytes from bom04s01-in-f17.1e100.net (173.194.36.17): icmp_req=7 ttl=52 time=32.7 ms\n                       
+^C\n
+--- www.google.com ping statistics ---\n
+7 packets transmitted, 7 received, 0% packet loss, time 6008ms\n
+rtt min/avg/max/mdev = 32.746/33.031/33.288/0.310 ms\n                                                
+aditi@mylaptop:~$\n\n
+
+How to login to another remote machine\n\n
+
+Use ssh (secure shell) to remotely connect to another machine. Type \"ssh username@&lt;ip address>\" or \"ssh username@&lt;hostname>\" at the command prompt.\n\n
+
+aditi@mylaptop:~$ ssh shyam@127.0.0.1\n
+The authenticity of host \'127.0.0.1 (127.0.0.1)\' can\'t be established.\n
+RSA key fingerprint is 28:07:e5:0b:e0:bb:06:65:a6:f3:19:24:bf:22:69:22.\n
+Are you sure you want to continue connecting (yes/no)? yes\n
+Warning: Permanently added \'10.9.24.22\' (RSA) to the list of known hosts.\n\n
+
+You will get the message above if you are connecting to a machine for the first time. Answer \"yes\" to the question above.\n\n
+
+shyam@127.0.0.1\'s password:\n
+Permission denied, please try again.\n
+shyam@127.0.0.1\'s password:\n\n
+
+If you enter incorrect password, you will get the above message and prompted to re-enter password.\n\n
+
+After you enter the correct password, you will get a message and the shell prompt. The message content depends upon the system administrator and can be modified. Below you can see the shell prompt after the default linux message.\n\n
+
+Linux shyamslaptop 3.2.0-2-amd64 #1 SMP Mon May 21 17:45:41 UTC 2012 x86_64\n
+The programs included with the Debian GNU/Linux system are free software;\n
+the exact distribution terms for each program are described in the\n
+individual files in /usr/share/doc/*/copyright.\n
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent\n
+permitted by applicable law.\n
+Last login: Tue Jan  8 05:07:49 2013 from 10.9.24.11\n 
+shyam@shyamslaptop:~$\n\n
+
+At this stage, you can work in the remote machine as if it was a local machine. After you are done, you can type \"exit\" to log out of the remote machine.\n\n
+
+shyam@shyamslaptop:~$ exit\n
+logout\n
+Connection to 127.0.0.1 closed.\n
+aditi@mylaptop:~$ \n\n
+
+You need to know the password on the remote machine in order to connect. Anyone with the userid and password can connect, hence it is important to have a good password on your machine. You can change your password using \"passwd\" command, as show below.\n\n
+
+aditi@mylaptop:~$ \n
+(current) Password: \n
+New password:\n
+Retype new password:\n
+passwd: password updated successfully\n
+aditi@mylaptop:~$ \n\n
+
+How to copy files from one machine to another machine?\n\n
+
+Use \"scp\" (secure copy) to copy files from one machine to another.\n\n
+
+aditi@mylaptop:~$ scp marks.txt shyam@127.0.0.1:/home/shyam/guestfiles\n
+shyam@127.0.0.1\'s password:\n
+marks.txt                                          100%     127    10KB/s    00:00\n
+aditi@mylaptop:~$ \n\n
+
+How to synchronize two files or directories on one machine to another machine\n\n
+
+Synchronizing two locations means having the same content (files, directories) on both the locations. You can use \"rsync\" to synchronize files and folders across different directories in the same computer, or across different computers.\n\n
+
+If you want to synchronize two directories with small content (a few kilobytes or a few megabytes), you can just do an \"scp\" (as explained above) and copy the files from the source to target. But if you need to synchronize bigger directories (several megabytes or even gigabytes), copy will not be effective as scp copies all the content from scratch and will take a lot of time.\n\n
+
+rsync only copyies the changes that were done since last sync. If both the locations already have the same content, rsync will not do anything. rsync has the additional benefit that it can retain the file permissions and other attributes across the locations.\n\n
+
+Example 1: Synchronize contents of lectures folder. The below command syncs all the files (but not subdirectories) in /home/aditi/lectures directory with lectures folder in Shyam\'s home directory. Using the \"-v\" (verbose) option, you can see the files being synchronized.\n\n
+
+rsync -v /home/aditi/lectures/ shyam@127.0.0.1:~/lectures/\n\n
+
+Example 2: Synchronize all C programs from present working directory to /opt/cprograms/ directory, retaining the last modified timestamps. Using the \"-t\" option enables synchronization of timestamps as well (date and time when the file was last modified).\n\n
+
+rsync -t *.c shyam@127.0.0.1:/opt/cprograms/\n\n
+
+Example 3: Synchronize all contents of \"readings\" directory (including subdirectories) to \"readings\" directory in Shyam\'s home directory. Adding the \"-r\" option synchronizes the directory recursively.\n\n
+
+rsync -vtr /home/aditi/readings shyam@127.0.0.1:~/readings\n\n
+
+Example 4: Synchronize all contents of Shyam\'s \"music\" directory to the music directory in present working directory.\n\n
+
+rsync -vtr shyam@127.0.0.1:~/music music\n\n
+
+Example 5: Synchronize all music from Shyam\'s \"music\" directory to Ram\'s \"music\" directory. Using the \"-a\" option triggers the \"archive\" mode i.e. it synchronizes not only the content but also permissions, attributes, timestamps, ownerships, etc. Using the \"-z\" option uses compression during transmission, speeding up the transfer.\n\n
+
+rsync -az shyam@127.0.0.1:~/music ram@10.9.12.110:~/music\n\n
+
+For more details on any of the commands discussed here, please refer to the manpage.\n\n
+
+man rsync</string>
+    <string name="title_activity_basic_networking">BasicNetworkingActivity</string>
+    <string name="title_activity_file_permissions">FilePermissionsActivity</string>
+    <string name="title_activity_obtaining_system_information">ObtainingSystemInformationActivity</string>
+
+</resources>

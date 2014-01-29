@@ -1,0 +1,1009 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FilePermissionsActivity" >
+
+     <Button
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:text="@string/runTerminal"
+     android:onClick="callTerminal" />
+     
+     <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            
+  	     <LinearLayout 
+         	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            
+ 			<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_1" />
+    
+    		<ImageView
+        		android:id="@+id/allFiles"
+        		android:contentDescription="@string/all_files"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:adjustViewBounds='true'
+       		 	android:src="@drawable/all_files" />
+		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_2" />
+    			 
+    		<ImageView
+        		android:id="@+id/allTeachers"
+        		android:contentDescription="@string/all_teachers"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:adjustViewBounds='true'
+       		 	android:src="@drawable/all_teachers" />
+		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_3" />
+    		
+    		<ImageView
+        		android:id="@+id/allStudents"
+        		android:contentDescription="@string/all_students"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:adjustViewBounds='true'
+       		 	android:src="@drawable/all_students" />
+		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_4" />
+    		
+    		<ImageView
+        		android:id="@+id/teacherSubject"
+        		android:contentDescription="@string/teacher_subject"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:adjustViewBounds='true'
+       		 	android:src="@drawable/teacher_subject" />
+		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_5" />
+    		
+    		<TableLayout
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:shrinkColumns="*"
+        		android:stretchColumns="*" >
+				<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="FILE NAME" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="4"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="USER OWNER" >
+        			</TextView>
+    			</TableRow>  
+        		<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="english.txt" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="english_teacher" >
+       	 			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="maths.txt" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="maths_teacher" >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="physics.txt" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="physics_teacher" >
+        			</TextView>
+    			</TableRow>
+			</TableLayout>
+    		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_6" />
+    		
+    		<ImageView
+        		android:id="@+id/teacherMarks"
+        		android:contentDescription="@string/teacher_marks"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:adjustViewBounds='true'
+       		 	android:src="@drawable/teacher_marks" />
+		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_7" />
+    		
+    		<ImageView
+        		android:id="@+id/teacherGroup"
+        		android:contentDescription="@string/teacher_group"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:adjustViewBounds='true'
+       		 	android:src="@drawable/teacher_group" />
+		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_8" />
+    		
+    		<TableLayout
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:shrinkColumns="*"
+        		android:stretchColumns="*" >
+				<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="FILE NAME" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="4"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="GROUP OWNER" >
+        			</TextView>
+    			</TableRow>  
+        		<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="marks.txt" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="teacher group" >
+       	 			</TextView>
+    			</TableRow>
+			</TableLayout>
+    		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_9" />
+    		
+    		<TableLayout
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:shrinkColumns="*"
+        		android:stretchColumns="*" >
+				<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="CHARACTER POSITION" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="POSSIBLE VALUES" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="DESCRIPTION" >
+        			</TextView>
+    			</TableRow>  
+        		<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 1" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="'-' or 'd'" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Character at this position indicates the type of file. Regular files are indicated by '-' and directories are indicated by value 'd'. There are also other types of files apart from regular files and directories, explanation of which is outside the scope of this experiment. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 2" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="'r' or '-'" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="A hypen at this position indicates that user owner of this file does not has read permissions on the file, whereas a 'r' at this position indicates that user has read permissions on the file. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 3" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="'w' or '-'" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="A hypen at this position indicates that user owner of this file does not has write permissions on the file, whereas a 'w' at this position indicates that user has write permissions on the file. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 4" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="'x' or '-'" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" x and '-' indicate presence and absence of execute permission for user owner on the given file, respectively. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 5" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="'r' or '-'" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="r and '-' indicate presence and absence of read permission for group owner on the given file, respectively. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 6" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="'w' or '-'" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 	w and '-' indicate presence and absence of write permission for group owner on the given file, respectively. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 7" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="'x' or '-'" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 	x and '-' indicate presence and absence of execute permission for group owner on the given file, respectively. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 8" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="'r' or '-'" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="r and '-' indicate presence and absence of read permission for others on the given file, respectively. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 9" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="'w' or '-'" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="w and '-' indicate presence and absence of write permission for others on the given file, respectively. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 10" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="1"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="'x' or '-'" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="2"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" x and '-' indicate presence and absence of execute permission for others on the given file, respectively. " >
+        			</TextView>
+    			</TableRow>
+			</TableLayout>
+    		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_10" />
+    		
+    		<TableLayout
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:shrinkColumns="*"
+        		android:stretchColumns="*" >
+				<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="ALPHABET" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="4"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="MEANING" >
+        			</TextView>
+    			</TableRow>  
+        		<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" a" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="This represents all users including user owner, group owner and others. Hence this can be used to modify permission for everyone. " >
+       	 			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" u" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" This represents user owner of the file. Hence this can be used to change permissions (such as read, write or execute) for user owner for a particular file or set of files. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" g" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="This represents group owner of the file. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" o" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="This represents others (neither user owner nor group owner) for the file. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" =" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="This operator can be used to assign a set of permissions. When this operator is used the previous permissions for the group (all, user owner, group owner or others) are ignored and specified set of permissions become the final permissions. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" +" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="This operator is used to add specified set of permissions (read, write or execute) to specified category (user owner, group owner or others). The previous permissions are kept and the mentioned permissions are added, if they are not already present. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" -" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="This operator is used to remove specified set of permissions (read, write or execute) to specified category (user, group owner or others). This operator insures that specified permissions, if they exist for a given file for given category get removed. " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" r" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="This represents read permission for given category (user owner, group owner, others or all). " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" w" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="This represents write permission for given category (user owner, group owner, others or all). " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" x" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="This represents execute permission for given category (user owner, group owner, others or all). " >
+        			</TextView>
+    			</TableRow>
+			</TableLayout>
+    		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_11" />
+    		
+    		<TableLayout
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:shrinkColumns="*"
+        		android:stretchColumns="*" >
+				<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="DIGIT" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="4"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="SIGNIFICANCE" >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 0" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="This indicate no permissions, i.e., all three read, write and execute should not be there " >
+        			</TextView>
+    			</TableRow>  
+        		<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 1" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Indicates execute (x) permissions, but no read or write permissions " >
+       	 			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 2" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Indicates write (w) permissions, but no read or execute permissions " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 3" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Indicates write (w) and execute(x) permissions, but no read(r) permissions" >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 4" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Indicates read (r) permissions, but no write(w) and execute(x) permissions " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 5" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Indicates read (r) and execute(x) permissions, but no write(w) permissions " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 6" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Indicates read (r) and write(w) permissions, but no execute(x) permissions " >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" 7" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Indicates all three read (r), write(w) and execute(x) permissions should be present. " >
+        			</TextView>
+    			</TableRow>
+			</TableLayout>		
+    	
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp4_12" />
+    		
+		</LinearLayout>
+		
+	</ScrollView>
+
+</LinearLayout>

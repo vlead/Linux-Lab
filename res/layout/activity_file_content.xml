@@ -1,0 +1,124 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FileContentActivity" >
+
+    <Button
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:text="@string/runTerminal"
+     android:onClick="callTerminal" />
+    
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+            
+  	     <LinearLayout 
+          	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+		    
+		    <TextView
+    		    android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="@string/exp3_1" />
+
+		    <TableLayout
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:shrinkColumns="*"
+        		android:stretchColumns="*" >
+				<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Option" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="4"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Description" >
+        			</TextView>
+    			</TableRow>  
+        		<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" c" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Counts and displays the number of bytes in the input file" >
+       	 			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" l" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Counts and displays the number of lines in the input file" >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" w" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Counts and displays the number of words in the input file" >
+        			</TextView>
+    			</TableRow>
+			</TableLayout>
+		    
+		    <TextView
+    		    android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="@string/exp3_2" />
+		    
+		 </LinearLayout>
+		
+	</ScrollView>
+	
+</LinearLayout>

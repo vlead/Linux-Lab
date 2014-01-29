@@ -1,0 +1,204 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FileManagementActivity" >
+  	 
+    <Button
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:text="@string/runTerminal"
+     android:onClick="callTerminal" />
+    
+  	 <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            
+  	     <LinearLayout 
+         	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            
+ 			<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp1_1" />
+    
+    		<ImageView
+        		android:id="@+id/directoryTree"
+        		android:contentDescription="@string/directory_path"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:adjustViewBounds='true'
+       		 	android:src="@drawable/directory_path_example" />
+		
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp1_2" />
+    			 
+    		<TableLayout
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:shrinkColumns="*"
+        		android:stretchColumns="*" >
+				<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Option" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="4"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Purpose" >
+        			</TextView>
+    			</TableRow>  
+        		<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" l" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Displays the detailed view of the contents of the folder" >
+       	 			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" a" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Also displays hidden contents of the folder" >
+        			</TextView>
+    			</TableRow>
+			</TableLayout>
+    			
+    		<TextView
+    			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:text="@string/exp1_3" />
+    		
+    		<TableLayout
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:shrinkColumns="*"
+        		android:stretchColumns="*" >
+				<TableRow>
+   	  	   			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Option" >
+        			</TextView>
+			        <TextView
+    	    		    android:layout_width="0dip"
+    	    		    android:layout_height="match_parent"
+    	    		    android:layout_weight="4"
+        			    android:layout_margin="2dip"
+        			    android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="Purpose" >
+        			</TextView>
+    			</TableRow>  
+        		<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" -f" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="forces removing a file, even if user has no rights to write the file." >
+       	 			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" -i" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="user will be asked to confirm the operation for each file." >
+        			</TextView>
+    			</TableRow>
+    			<TableRow>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="1"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text=" -b" >
+        			</TextView>
+        			<TextView
+            			android:layout_width="0dip"
+            			android:layout_height="match_parent"
+            			android:layout_weight="4"
+            			android:layout_margin="2dip"
+            			android:background="#FF808080"
+         				android:textColor="#FFFFFFFF"
+            			android:text="creates backup copy of a file to be overwritten." >
+        			</TextView>
+    			</TableRow>
+			</TableLayout>
+    		
+		</LinearLayout>
+		
+	</ScrollView>
+
+</LinearLayout>
